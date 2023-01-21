@@ -1,6 +1,7 @@
 package Com.BridgeLabs;
 
 import Com.BridgeLabs.AddressBook;
+
 public class AddresBookMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,7 +18,7 @@ public class AddresBookMain {
 
 		addressBook1.editContact();
 		System.out.println("------=edited=---------");
-		
+
 		System.out.println(addressBook1.contact.getFirstName());
 		System.out.println(addressBook1.contact.getLastName());
 		System.out.println(addressBook1.contact.getAddress());
