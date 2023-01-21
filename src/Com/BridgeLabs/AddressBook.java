@@ -49,4 +49,18 @@ public class AddressBook {
             
         }
     }
+    public void deleteContact() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the firt name of the contact you want to edit :");
+        String searchName = scanner.next();
+        if (contact.getFirstName().equalsIgnoreCase(searchName)) {
+        	contact.setPhoneNumber(null);
+            contact.setFirstName(null);
+            contact.setLastName(null);
+            contact.setEmail(null);
+            contact.setAddress(null);
+            contact.setZip(0);
+        }
+    
+}
 }
