@@ -26,6 +26,18 @@ public class AddresBookMain {
 		System.out.println(addressBook1.contact.getPhoneNumber());
 
 		System.out.println(addressBook1.contact.getEmail());
+		
+		addressBook1.deleteContact();
+		
+		System.out.println("------=deleted=---------");
+
+		System.out.println(addressBook1.contact.getFirstName());
+		System.out.println(addressBook1.contact.getLastName());
+		System.out.println(addressBook1.contact.getAddress());
+		System.out.println(addressBook1.contact.getZip());
+		System.out.println(addressBook1.contact.getPhoneNumber());
+
+		System.out.println(addressBook1.contact.getEmail());
 	}
 
 }
