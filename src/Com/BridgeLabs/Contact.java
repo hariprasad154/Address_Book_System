@@ -1,110 +1,133 @@
 package Com.BridgeLabs;
+import java.util.Objects;
+public class Contact { private String name ;
+private String surName;
+private String address;
+private String  city ;
+private String state;
+private String contactNumber;
+private String zip;
+private String gmail ;
+public Contact(String name, String surName, String Address, String  city, String state, String contactNumber,
+               String zip, String gmail){
+    this.name = name;
+    this.surName = surName;
+    this.address = Address;
+    this.city=city;
+    this.state = state;
+    this.contactNumber = contactNumber;
+    this.zip = zip;
+    this.gmail = gmail;
+}
 
-public class Contact {
-	//setting the variables for the adress book
-	private String firstName;
-	private String lastName;
-	private String address;
-	private int zip;
-	private String phoneNumber;
-	private String email;
+public Contact() {
+}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public String getSurName() {
+    return surName;
+}
+
+public void setSurName(String surName) {
+    this.surName = surName;
+}
+
+public String getAddress() {
+    return address;
+}
+
+public void setAddress(String address) {
+    this.address = address;
+}
+
+public String getCity() {
+    return city;
+}
+
+public void setCity(String city) {
+    this.city = city;
+}
+
+public String getState() {
+    return state;
+}
+
+public void setState(String state) {
+    this.state = state;
+}
+
+public String getContactNumber() {
+    return contactNumber;
+}
+
+public void setContactNumber(String contactNumber) {
+    this.contactNumber = contactNumber;
+}
+
+public String getZip() {
+    return zip;
+}
+
+public void setZip(String zip) {
+    this.zip = zip;
+}
+
+public String getGmail() {
+    return gmail;
+}
+
+public void setGmail(String gmail) {
+    this.gmail = gmail;
+}
+public String toStore(){
+    return String.format(name+" "+ surName+ " "+ address+" "  +city+" " + state+" "+ contactNumber+
+            " "+ zip+" "+ gmail);
+}
+
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Contact)) return false;
+    Contact contact = (Contact) o;
+    return Objects.equals(name, contact.name) &&
+            Objects.equals(surName, contact.surName) &&
+            Objects.equals(address, contact.address) &&
+            Objects.equals(city, contact.city) &&
+            Objects.equals(state, contact.state) &&
+            Objects.equals(contactNumber, contact.contactNumber) &&
+            Objects.equals(zip, contact.zip) &&
+            Objects.equals(gmail, contact.gmail);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(name, surName, address, city, state, contactNumber, zip, gmail);
+}
+
+@Override
+public String toString() {
+    return "Contact{" +
+            "name='" + name + '\'' +
+            ", surName='" + surName + '\'' +
+            ", address='" + address + '\'' +
+            ", city='" + city + '\'' +
+            ", state='" + state + '\'' +
+            ", contactNumber='" + contactNumber + '\'' +
+            ", zip='" + zip + '\'' +
+            ", gmail='" + gmail + '\'' +
+            '}';
+}
+
+public static void remove(Contact contactPerson) {
+	// TODO Auto-generated method stub
 	
-	public Contact() {
-    }
-
-	//method to get the detailes 
-    Contact(String firstName, String lastName,String address,int zip, String email, String phoneNumber) {
-    	//arching the encptulation
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address=address;
-        this.zip=zip;    
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	/**
-	 * @return the zip
-	 */
-	public int getZip() {
-		return zip;
-	}
-
-	/**
-	 * @param zip the zip to set
-	 */
-	public void setZip(int zip) {
-		this.zip = zip;
-	}
-
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+}
 
 }
