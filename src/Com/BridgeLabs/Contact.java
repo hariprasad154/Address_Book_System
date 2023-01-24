@@ -13,7 +13,7 @@ public class Contact {
     }
 
 	//method to get the detailes 
-    public Contact(String firstName, String lastName,String address,int zip, String email, String phoneNumber) {
+    Contact(String firstName, String lastName,String address,int zip, String email, String phoneNumber) {
     	//arching the encptulation
         this.firstName = firstName;
         this.lastName = lastName;
