@@ -1,87 +1,109 @@
 package Com.BridgeLabs;
 
-public class Contact {
-    private final String fName;
-    private final String lName;
-    private final String address;
-    private final String city;
-    private final String state;
-    private final String zip;
-    private final String phone;
-    private final String email;
 
-    public Contact(String fName, String lName, String address, String city, String state, String zip, String phone,
-                   String email) {
-        this.fName = fName;
-        this.lName = lName;
+public class Contact {
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private String zip;
+    private String phoneNumber;
+    private String email;
+
+    Contact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
         return address;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getCity() {
         return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {
         return state;
     }
 
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getZip() {
         return zip;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
         return email;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!(obj instanceof Contact))
-            return false;
-
-        Contact other = (Contact) obj;
-        if (!(fName.equalsIgnoreCase(other.getfName())))
-            return false;
-        if (!(lName.equalsIgnoreCase(other.getlName())))
-            return false;
-        if (!(address.equalsIgnoreCase(other.getAddress())))
-            return false;
-        if (!(city.equalsIgnoreCase(other.getCity())))
-            return false;
-        if (!state.equalsIgnoreCase(other.getState()))
-            return false;
-        if (!zip.equals(other.getZip()))
-            return false;
-        if (!(phone.equals(other.getPhone())))
-            return false;
-        return email.equals(other.getEmail());
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    //Overriding equals method to compare Contact objects
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = false;
+
+        // If the object is compared with itself then returns true
+        if(obj == this) {
+            return true;
+        }
+        Contact contact = (Contact)obj; // typecast obj to Contact so that we can compare data members
+        //Compare data members and return accordingly
+        if(contact.firstName.equals(this.firstName) && contact.lastName.equals(this.lastName)) {
+            result = true;
+        }
+        return result;
+    }
     @Override
     public String toString() {
-        return fName + "\t" + lName + "\t" + address + "\t" + city + "\t" + state + "\t" + zip + "\t" + phone + "\t"
-                + email;
+        return this.getFirstName() + " " + this.getLastName() + " " + this.getAddress() + " " + this.getPhoneNumber() + " " + this.getEmail();
     }
 }
