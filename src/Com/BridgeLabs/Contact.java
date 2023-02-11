@@ -1,133 +1,109 @@
 package Com.BridgeLabs;
-import java.util.Objects;
-public class Contact { private String name ;
-private String surName;
-private String address;
-private String  city ;
-private String state;
-private String contactNumber;
-private String zip;
-private String gmail ;
-public Contact(String name, String surName, String Address, String  city, String state, String contactNumber,
-               String zip, String gmail){
-    this.name = name;
-    this.surName = surName;
-    this.address = Address;
-    this.city=city;
-    this.state = state;
-    this.contactNumber = contactNumber;
-    this.zip = zip;
-    this.gmail = gmail;
-}
 
-public Contact() {
-}
 
-public String getName() {
-    return name;
-}
+public class Contact {
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private String zip;
+    private String phoneNumber;
+    private String email;
 
-public void setName(String name) {
-    this.name = name;
-}
+    Contact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
-public String getSurName() {
-    return surName;
-}
+    public String getFirstName() {
+        return firstName;
+    }
 
-public void setSurName(String surName) {
-    this.surName = surName;
-}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-public String getAddress() {
-    return address;
-}
+    public String getLastName() {
+        return lastName;
+    }
 
-public void setAddress(String address) {
-    this.address = address;
-}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-public String getCity() {
-    return city;
-}
+    public String getAddress() {
+        return address;
+    }
 
-public void setCity(String city) {
-    this.city = city;
-}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-public String getState() {
-    return state;
-}
+    public String getCity() {
+        return city;
+    }
 
-public void setState(String state) {
-    this.state = state;
-}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-public String getContactNumber() {
-    return contactNumber;
-}
+    public String getState() {
+        return state;
+    }
 
-public void setContactNumber(String contactNumber) {
-    this.contactNumber = contactNumber;
-}
+    public void setState(String state) {
+        this.state = state;
+    }
 
-public String getZip() {
-    return zip;
-}
+    public String getZip() {
+        return zip;
+    }
 
-public void setZip(String zip) {
-    this.zip = zip;
-}
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
 
-public String getGmail() {
-    return gmail;
-}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-public void setGmail(String gmail) {
-    this.gmail = gmail;
-}
-public String toStore(){
-    return String.format(name+" "+ surName+ " "+ address+" "  +city+" " + state+" "+ contactNumber+
-            " "+ zip+" "+ gmail);
-}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-@Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Contact)) return false;
-    Contact contact = (Contact) o;
-    return Objects.equals(name, contact.name) &&
-            Objects.equals(surName, contact.surName) &&
-            Objects.equals(address, contact.address) &&
-            Objects.equals(city, contact.city) &&
-            Objects.equals(state, contact.state) &&
-            Objects.equals(contactNumber, contact.contactNumber) &&
-            Objects.equals(zip, contact.zip) &&
-            Objects.equals(gmail, contact.gmail);
-}
+    public String getEmail() {
+        return email;
+    }
 
-@Override
-public int hashCode() {
-    return Objects.hash(name, surName, address, city, state, contactNumber, zip, gmail);
-}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-@Override
-public String toString() {
-    return "Contact{" +
-            "name='" + name + '\'' +
-            ", surName='" + surName + '\'' +
-            ", address='" + address + '\'' +
-            ", city='" + city + '\'' +
-            ", state='" + state + '\'' +
-            ", contactNumber='" + contactNumber + '\'' +
-            ", zip='" + zip + '\'' +
-            ", gmail='" + gmail + '\'' +
-            '}';
-}
+    //Overriding equals method to compare Contact objects
+    @Override
+    public boolean equals(Object obj) {
+        boolean result = false;
 
-public static void remove(Contact contactPerson) {
-	// TODO Auto-generated method stub
-	
-}
-
+        // If the object is compared with itself then returns true
+        if(obj == this) {
+            return true;
+        }
+        Contact contact = (Contact)obj; // typecast obj to Contact so that we can compare data members
+        //Compare data members and return accordingly
+        if(contact.firstName.equals(this.firstName) && contact.lastName.equals(this.lastName)) {
+            result = true;
+        }
+        return result;
+    }
+    @Override
+    public String toString() {
+        return this.getFirstName() + " " + this.getLastName() + " " + this.getAddress() + " " + this.getPhoneNumber() + " " + this.getEmail();
+    }
 }
